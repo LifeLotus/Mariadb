@@ -1,0 +1,17 @@
+# usage
+1. Determining the number of rows in a table
+2. Obtainning the sum of a group
+3. Findding the highest, lowest, and the average values in a table column.
+
+# Aggregate Functions
+AVG()
+COUNT()
+MAX()
+MIN()
+SUM()
+
+# Aggregate on Distinct Values
+AVG(DISTINCT prod_price)
+COUNT(DISTINCT prod_price)
+SUM(DISTINCt prod_price)
+
