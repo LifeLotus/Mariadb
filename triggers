@@ -1,0 +1,57 @@
+# understanding triggers
+A trigger is a mariadb statement that are automatically executed by maraidb
+in response to any of these statements:
+delete
+insert
+update
+
+only tables not no views.
+
+# C
+create trigger newproduct after insert on products
+for each row
+begin
+end;
+
+# D
+drop trigger newpruduct;
+
+# R
+1 insert trigger
+virtual table named new
+
+create trigger neworder after insert on orders
+fro each row
+begin
+  insert into orders_log(changed_on, change_type, order_num)
+  values(Now(), 'A', New.order_num);
+end;
+
+before vs after
+use after if you need to access data that won't exist until a statement has been
+processed
+use before for data validation and cleanup
+
+2 delete triggers
+virtual table named old
+create trigger deleteorder before delete on orders
+for each row
+begin
+  insert into orders_log(changed_on, change_type, order_num)
+  values(Now(), 'D', OLD.order_num);
+end;
+
+3 update triggers
+virtual table old
+virtual table new
+create trigger updatevendor before update on vendors
+for each row set new.vend_state = upper(new.vend_state);
+
+# notes
+stored  procedures cannot be invoked from within triggers.
+
+
+
+
+
+
