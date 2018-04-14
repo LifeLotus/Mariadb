@@ -1,0 +1,17 @@
+# union
+selct vend_id, prod_id, prod_price
+from products
+where vend_id = 1001
+union
+select vend_id, prod_id, prod_price
+from products
+where vend_id = 1002
+
+# union all
+including duplicate row
+
+# order 
+occur after the last select statment
+
+
+
