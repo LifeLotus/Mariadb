@@ -1,0 +1,9 @@
+# usage 
+start transaction;
+rollback;
+commit;
+
+savepoint delete1;
+rooback to delete;
+
+set autocommit = 0;
