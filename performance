@@ -1,0 +1,13 @@
+#
+1 show processlist to dispay all active process, you can also use the kill command
+2 joins, unions, subqueries
+3 explain
+4 stored procedure execute quicker than individual statements.
+5 use the right data types
+6 never retrieve more data than you need.
+7 when importing data, turn off autocommit, drop indexes and the recreate
+them after completed.
+8 have a series of complex or conditions in your select? improve by union.
+9 indexes improve the performance of data retrieval but hurt the performance 
+of data insertion, deletion, and updating.
+10 like is slow. use fulltext over like.
