@@ -1,0 +1,94 @@
+# understanding stored procedure
+Stored procedures are simply colletions of one or more MariaDB statements
+saved for future use. You can think of them as batch files, although in truth
+they are more than that.
+
+# why use stored procedures
+1 to simplify complex operations
+2 to ensure data integrity by not requiring that a series of steps be created
+over and over.
+3 to simplify change management.
+4 to improve performance, as stored procedures typically execute quicker than 
+do individual statements.
+
+simplicity, security, and performance.
+
+# usage
+1 R
+  call productpricing(@pricelow,
+                      @pricehigh,
+                      @priceaverage);
+2 C
+  create procedure productpricing()
+  begin
+    select avg(prod_price) as priceaverage
+    from products;
+  end;
+3 D
+drop procedure productpricing;
+4 parameters
+create procedure productpricing(
+  out pl decimal(8, 2),
+  out ph decimal(8, 2),
+  out pa decimal(8, 2)
+)
+begin 
+  select min(pro_price)
+  into pl
+  from products;
+  select max(pro_price)
+  into ph
+  from products;
+  select avg(pro_price)
+  into pa
+  from products;
+end;
+
+call productpricing(@pricelow, @pricehigh, @priceaverage);
+select @priceaverage;
+
+create procedure ordertotal(
+  in onumber int,
+  out ototal decimal(8, 2)
+)
+begin
+  select sum(item_price*quantity)
+  from orderitems
+  where order_num = onumber
+  into ototal;
+end;
+
+call ordertotal(20005, @total);
+select @ototal;
+
+# 5 intelligent stored procedures
+create procedure ordertotal (
+  in onumber int,
+  in taxable boolean,
+  out ototal decimal(8, 2)
+)
+begin 
+  declare total decimal(8, 2);
+  declare tax int default 6;
+  
+  select sum(item_price*quantity)
+  from orderitems
+  where order_num = onumber
+  into total;
+  
+  if taxable then
+    select total+(total/100*taxrate) into total;
+  endif;
+  
+  select total into ototal;
+end;
+
+# 5 R
+show create procudure ordertotal;
+
+
+
+
+
+
+
