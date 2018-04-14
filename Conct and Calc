@@ -1,0 +1,12 @@
+# Conct
+selct Conct(prod_name, '(', prod_country, ')')
+from products;
+
+# Alias
+select Conct(prod_name, '(', prod_contry, ')') as name_contry
+from products
+order by name_contry;
+
+#Calc
+slect prod_id, quantity, price, quantity*price as total
+from products;
