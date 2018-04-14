@@ -1,0 +1,24 @@
+# Mariadb cursors may only be used within stored procedures and functions.
+
+# working with cursors
+1. Before a cursor can be used it must be declared.
+2. After it is declared, the cursor must be opened for use.
+3. With the cursor propulated with data, individual rows can be fetched as needed.
+4. When it is done, the cursor must be closed.
+
+# C
+create procedure processorders()
+begin 
+  declare o int;
+  declare ordernumbers cursor
+  for 
+  select order_num from orders;
+  
+  open ordernumers;
+  
+  fetch ordernumbers into o;
+  
+  close ordernumbers;
+  
+end;
+
