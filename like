@@ -1,0 +1,14 @@
+# % match any number of occurrences of any character.
+select * from products
+where prod_name like 'lene%'
+
+# % don't match NULL
+
+# _ match s single character
+
+# notes
+1. don't overuse wildcards
+2. try to not use them at the beginning.
+
+
+
