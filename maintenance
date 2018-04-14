@@ -1,0 +1,17 @@
+# backup data
+1 mysqldump
+2 mysqlhotcopy
+3 backup table
+4 select into outfile
+5 restore table
+
+# maintenance
+analyze table orders;
+check table orders, orderitems;
+
+# diagnosing startup problems
+mysqld --help
+mysqld --safe-mode
+mysqld --verbose
+mysqld --version
+
