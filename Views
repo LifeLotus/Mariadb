@@ -1,0 +1,25 @@
+# understanding views
+views are virtual tables, views simply contain queries that dynamically
+retrieve data when used.
+
+# usage
+1 reuse SQL statements
+2 simplify complex SQL operations.
+3 to expose parts of a table instead of complete tables.
+4 to secure data
+5 to chage data formatting and representation.
+
+# notes
+1 order by may be used in a view, but it will be overriden if order by is 
+also used in the select statement.
+2 can be nested
+3 views cannot be indexed, nor can they have triggers or default values.
+4 views can be used in conjunction with tables.
+
+# using
+1 C create view
+2 R show create view viewname;
+3 D drop view viewname;
+4 U replace view or create view;
+
+
