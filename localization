@@ -1,0 +1,7 @@
+#
+show character set;
+show collation; --排序规则
+show variables like 'character%';
+show variables like 'collation%‘；
+
+
