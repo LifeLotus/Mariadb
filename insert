@@ -1,0 +1,25 @@
+#insert into
+insert into customers(cust_id,
+  cust_contact,
+  cust_email,
+  cust_name)
+values(001,
+  'contact1',
+  'email@e.com',
+  'Peter'),
+  (002, 
+  'contact2',
+  'email2@e.com',
+  'Mike');
+  
+# insert select
+insert into customers(cust_id,
+  cust_contact,
+  cust_email,
+  cust_name)
+select cust_id,
+  cust_contact,
+  cust_email,
+  cust_name
+from custnew;
+
